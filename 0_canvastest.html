@@ -42,9 +42,11 @@ alert('3') ;
 alert('2') ;
 
     promise.then(function (stream) { // success
-		localVideo.srcObject = stream ;
-//      localStream = stream;
-//      localVideo.src = window.URL.createObjectURL(localStream);
+//		localVideo.srcObject = stream ;
+      localStream = stream;
+      localVideo.src = window.URL.createObjectURL(localStream);
+	  localVideo.play();
+	  streaming = true;
     }).catch(function (error) { // error
       console.error('mediaDevice.getUserMedia() error:', error);
       return;
