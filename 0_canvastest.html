@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>camera test</title>
+
+
+<style type="text/css">
+<!--
+#local_video{
+/*	display:none; */
+}
+#screen{
+	width:512px;
+	height:512px;
+	background-color:#000000;
+}
+button{
+	width:100px;
+	height:50px;
+}
+-->
+</style>
+
+
+<script type="text/javascript">
+
+
+  let localVideo = document.getElementById('local_video');
+  let localStream;
+  
+  // start local video
+function startCamera() {
+alert('3') ;
+//    navigator.mediaDevices.getUserMedia({video: true, audio: false})
+	const promise = navigator.mediaDevices.getUserMedia({video: {
+    facingMode: {
+      exact: "environment" // リアカメラにアクセス
+    }
+  }
+, audio: false}) ;
+alert('2') ;
+
+    promise.then(function (stream) { // success
+		localVideo.srcObject = stream ;
+//      localStream = stream;
+//      localVideo.src = window.URL.createObjectURL(localStream);
+    }).catch(function (error) { // error
+      console.error('mediaDevice.getUserMedia() error:', error);
+      return;
+    });
+alert('1') ;
+	setInterval(function(){
+		var canvas = document.getElementById("c");
+		canvas.getContext("2d").drawImage(localVideo, 0, 0, 512, 512);
+	}, 1000/30);
+
+  }
+
+</script>
+
+</head>
+
+<body>
+
+
+  <video id="local_video" autoplay playsinline style="width: 512px; height: 512px; border: 1px solid black;"></video>
+
+
+
+<div id="screen">
+
+<canvas id="c" width="512" height="512"></canvas>
+
+</div>
+
+<button onClick="startCamera()">start camera</button>
+
+</body>
+
+</html>
