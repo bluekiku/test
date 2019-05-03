@@ -54,6 +54,8 @@ alert('1') ;
 */
 function successCallback(stream) {
   localVideo.srcObject = stream;
+  localVideo.play();
+  streaming = true;
 };
 function errorCallback(err) {
   alert(err);
