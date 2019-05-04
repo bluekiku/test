@@ -35,13 +35,24 @@ const medias = {
 };
 
   const localVideo = document.getElementById('local_video');
-  let localStream;
+//  let localStream;
   
   // start local video
 function startCamera() {
-alert('3') ;
-
-                navigator.mediaDevices.getUserMedia(medias)
+//alert('3') ;
+            if (navigator.mediaDevices.getUserMedia) {
+alert("navigator.mediaDevices.getUserMedia");
+                let settings;
+                if(true) {
+                    settings = {video: {
+                            facingMode: {
+                                exact: "environment"
+                            }
+                        }};
+                } else {
+                    settings = {video: true};
+                }
+                navigator.mediaDevices.getUserMedia(settings)
                     .then(
                         function(stream) {
                             localVideo.srcObject = stream;
@@ -72,6 +83,7 @@ alert('1') ;
 		canvas.getContext("2d").drawImage(localVideo, 0, 0, 512, 512);
 	}, 1000/30);
 */
+/*
 function successCallback(stream) {
   localVideo.srcObject = stream;
   localVideo.play();
@@ -80,7 +92,7 @@ function successCallback(stream) {
 function errorCallback(err) {
   alert(err);
 };
-
+*/
 
 }
 
