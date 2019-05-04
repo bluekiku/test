@@ -26,7 +26,7 @@ button{
 <script type="text/javascript">
 
 const medias = {
-  audio: false,
+//  audio: false,
   video: {
     facingMode: {
       exact: "environment" // リアカメラにアクセス
@@ -40,12 +40,32 @@ const medias = {
   // start local video
 //function startCamera() {
 alert('3') ;
+
+                navigator.mediaDevices.getUserMedia(medias)
+                    .then(
+                        function(stream) {
+                            localVideo.srcObject = stream;
+                            localVideo.play();
+                            streaming = true;
+                            
+                            
+                            
+                            
+                            
+//                            requestAnimationFrame(myDraw);
+                        })
+                    .catch(function(err) {
+                        alert("An error occured! " + err);
+                    });
+
+/*
 	const promise = navigator.mediaDevices.getUserMedia(medias) ;
 alert('2') ;
 
     promise.then(successCallback)
            .catch(errorCallback);
 alert('1') ;
+*/
 /*
 	setInterval(function(){
 		var canvas = document.getElementById("c");
