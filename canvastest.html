@@ -23,6 +23,25 @@ button{
 </style>
 
 
+</head>
+
+<body>
+
+
+<video id="local_video" autoplay playsinline style="width: 512px; height: 512px; border: 1px solid black;"></video>
+
+
+
+<div id="screen">
+
+<canvas id="c" width="512" height="512"></canvas>
+
+</div>
+
+<button onClick="startCamera()">start camera</button>
+
+
+
 <script type="text/javascript">
 
 const medias = {
@@ -97,23 +116,6 @@ function errorCallback(err) {
 }
 
 </script>
-
-</head>
-
-<body>
-
-
-<video id="local_video" autoplay playsinline style="width: 512px; height: 512px; border: 1px solid black;"></video>
-
-
-
-<div id="screen">
-
-<canvas id="c" width="512" height="512"></canvas>
-
-</div>
-
-<button onClick="startCamera()">start camera</button>
 
 </body>
 
