@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>camera test</title>
+<title>camera test 2</title>
 
 
 <style type="text/css">
@@ -28,11 +28,7 @@ button{
 <body>
 
 
-<video id="local_video" autoplay playsinline></video>
-
-<!-- style="width: 512px; height: 512px; border: 1px solid black;">
--->
-
+<video id="local_video" autoplay playsinline style="width: 512px; height: 512px; border: 1px solid black;"></video>
 
 <div id="screen">
 
@@ -62,7 +58,7 @@ const medias = {
 function startCamera() {
 //alert('3') ;
             if (navigator.mediaDevices.getUserMedia) {
-alert("navigator.mediaDevices.getUserMedia");
+//alert("navigator.mediaDevices.getUserMedia");
                 let settings;
                 if(true) {
                     settings = {video: {
