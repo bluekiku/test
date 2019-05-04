@@ -28,8 +28,10 @@ button{
 <body>
 
 
-<video id="local_video" autoplay playsinline style="width: 512px; height: 512px; border: 1px solid black;"></video>
+<video id="local_video" autoplay playsinline </video>
 
+<!-- style="width: 512px; height: 512px; border: 1px solid black;">
+-->
 
 
 <div id="screen">
@@ -53,7 +55,7 @@ const medias = {
   }
 };
 
-  const localVideo = document.getElementById('local_video');
+  const video = document.getElementById("local_video");
 //  let localStream;
   
   // start local video
@@ -74,8 +76,8 @@ alert("navigator.mediaDevices.getUserMedia");
                 navigator.mediaDevices.getUserMedia(settings)
                     .then(
                         function(stream) {
-                            localVideo.srcObject = stream;
-                            localVideo.play();
+                            video.srcObject = stream;
+                            video.play();
                             streaming = true;
                             
                             
@@ -87,7 +89,9 @@ alert("navigator.mediaDevices.getUserMedia");
                     .catch(function(err) {
                         alert("An error occured! " + err);
                     });
-
+			} else {
+alert('NG') ;
+			}
 /*
 	const promise = navigator.mediaDevices.getUserMedia(medias) ;
 alert('2') ;
@@ -104,8 +108,8 @@ alert('1') ;
 */
 /*
 function successCallback(stream) {
-  localVideo.srcObject = stream;
-  localVideo.play();
+  video.srcObject = stream;
+  video.play();
   streaming = true;
 };
 function errorCallback(err) {
